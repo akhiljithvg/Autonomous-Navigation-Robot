@@ -6,7 +6,7 @@ A complete autonomous differential drive robot built with **ROS 2 Jazzy**. This 
 
 ## 📸 Screenshots
 
-![Navigation ](./images/simulation_screenshot.jpg)
+![Navigation ](./images/simulation_screenshot.png)
 
 ---
 
