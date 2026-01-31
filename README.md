@@ -1,9 +1,5 @@
 # 🤖 Autonomous Mobile Robot (ROS 2 Jazzy)
 
-![ROS 2](https://img.shields.io/badge/ROS_2-Jazzy-22314E?style=for-the-badge&logo=ros&logoColor=white)
-![Gazebo](https://img.shields.io/badge/Gazebo-Sim-orange?style=for-the-badge&logo=gazebo&logoColor=white)
-![License](https://img.shields.io/badge/License-MIT-green?style=for-the-badge)
-
 A complete autonomous differential drive robot built with **ROS 2 Jazzy**. This project demonstrates Simulation, Simultaneous Localization and Mapping (SLAM), and Autonomous Navigation using the Nav2 stack.
 
 ---
@@ -13,6 +9,7 @@ A complete autonomous differential drive robot built with **ROS 2 Jazzy**. This 
 | Simulation | Mapping (SLAM) | Navigation |
 |:---:|:---:|:---:|
 | ![Gazebo World](https://via.placeholder.com/300x200?text=Gazebo+Simulation) | ![SLAM Map](https://via.placeholder.com/300x200?text=Mapping+Process) | ![Navigation](https://via.placeholder.com/300x200?text=Autonomous+Nav) |
+
 > *Note: Place your screenshot images in an `images/` folder and update the links above.*
 
 ---
@@ -35,55 +32,69 @@ A complete autonomous differential drive robot built with **ROS 2 Jazzy**. This 
 ### Dependencies
 Install the required ROS 2 packages:
 ```bash
-sudo apt install ros-jazzy-navigation2 ros-jazzy-nav2-bringup ros-jazzy-slam-toolbox ros-jazzy-ros-gz```
-
-### Installation
-
-Clone the repository:
-```
-mkdir -p ~/ros2_ws/src
-cd ~/ros2_ws/src
-git clone [https://github.com/akhiljithvg/Autonomous-Navigation-Robot.git](https://github.com/akhiljithvg/Autonomous-Navigation-Robot.git)
+sudo apt install ros-jazzy-navigation2 ros-jazzy-nav2-bringup ros-jazzy-slam-toolbox ros-jazzy-ros-gz
 ```
 
-Build the workspace:
+---
 
-```cd ~/ros2_ws
-colcon build --packages-select diff_drive_robot --symlink-install
-source install/setup.bash```
+## 🚀 Installation
 
-Usage Guide:
+1.  **Clone the repository:**
+    ```bash
+    mkdir -p ~/ros2_ws/src
+    cd ~/ros2_ws/src
+    git clone [https://github.com/akhiljithvg/Autonomous-Navigation-Robot.git](https://github.com/akhiljithvg/Autonomous-Navigation-Robot.git)
+    ```
 
-1. Launch Simulation
+2.  **Build the workspace:**
+    ```bash
+    cd ~/ros2_ws
+    colcon build --packages-select diff_drive_robot --symlink-install
+    source install/setup.bash
+    ```
+
+---
+
+## 🏃 Usage Guide
+
+### 1. Launch Simulation
 Start the robot in the Gazebo environment:
-```ros2 launch diff_drive_robot robot.launch.py use_sim_time:=true```
+```bash
+ros2 launch diff_drive_robot robot.launch.py use_sim_time:=true
+```
 
-2. Mapping Mode (SLAM)
+### 2. Mapping Mode (SLAM)
 To create a new map of the environment:
-```ros2 launch diff_drive_robot mapping.launch.py use_sim_time:=true```
+```bash
+ros2 launch diff_drive_robot mapping.launch.py use_sim_time:=true
+```
 
-Control: Open a new terminal and run ros2 run teleop_twist_keyboard teleop_twist_keyboard to drive the robot.
+* **Control:** Open a new terminal and run:
+    ```bash
+    ros2 run teleop_twist_keyboard teleop_twist_keyboard
+    ```
+* **Save Map:** When finished mapping, run:
+    ```bash
+    ros2 run nav2_map_server map_saver_cli -f ~/my_map
+    ```
 
-Save Map: When finished, run:
-```ros2 run nav2_map_server map_saver_cli -f ~/my_map```
-
-3. Autonomous Navigation
-
+### 3. Autonomous Navigation
 To make the robot drive itself using an existing map:
-```ros2 launch nav2_bringup bringup_launch.py map:=/path/to/your/map.yaml use_sim_time:=true```
+```bash
+ros2 launch nav2_bringup bringup_launch.py map:=/path/to/your/map.yaml use_sim_time:=true
+```
 
+#### How to Navigate:
+1.  Open **RViz**.
+2.  Click **"2D Pose Estimate"** and set the robot's current position on the map.
+3.  Click **"Nav2 Goal"** and click anywhere on the map to send the robot there!
 
-How to Navigate:
+---
 
-    Open RViz.
+## 📂 Project Structure
 
-    Click "2D Pose Estimate" and set the robot's current position on the map.
-
-    Click "Nav2 Goal" and click anywhere on the map to send the robot there!
-
-Project Structure:
-
-```diff_drive_robot/
+```bash
+diff_drive_robot/
 ├── launch/             # Launch files for Robot, Mapping, and Navigation
 ├── urdf/               # Robot description (Xacro/URDF)
 ├── worlds/             # Gazebo world files
@@ -91,8 +102,10 @@ Project Structure:
 ├── rviz/               # RViz configuration files
 └── package.xml
 ```
-Author
 
-Akhiljith Gigi
+---
 
-    GitHub: @akhiljithvg
+## 👨‍💻 Author
+
+**Akhiljith Gigi**
+* GitHub: [@akhiljithvg](https://github.com/akhiljithvg)
