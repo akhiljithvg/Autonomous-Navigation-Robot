@@ -35,7 +35,7 @@ A complete autonomous differential drive robot built with **ROS 2 Jazzy**. This 
 ### Dependencies
 Install the required ROS 2 packages:
 ```bash
-sudo apt install ros-jazzy-navigation2 ros-jazzy-nav2-bringup ros-jazzy-slam-toolbox ros-jazzy-ros-gz
+sudo apt install ros-jazzy-navigation2 ros-jazzy-nav2-bringup ros-jazzy-slam-toolbox ros-jazzy-ros-gz```
 
 ### Installation
 
