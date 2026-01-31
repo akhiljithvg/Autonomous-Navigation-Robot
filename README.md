@@ -6,11 +6,7 @@ A complete autonomous differential drive robot built with **ROS 2 Jazzy**. This 
 
 ## 📸 Screenshots
 
-| Simulation | Mapping (SLAM) | Navigation |
-|:---:|:---:|:---:|
-| ![Gazebo World](https://via.placeholder.com/300x200?text=Gazebo+Simulation) | ![SLAM Map](https://via.placeholder.com/300x200?text=Mapping+Process) | ![Navigation](https://via.placeholder.com/300x200?text=Autonomous+Nav) |
-
-> *Note: Place your screenshot images in an `images/` folder and update the links above.*
+![Navigation ](./images/simulation_screenshot.jpg)
 
 ---
 
