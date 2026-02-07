@@ -78,7 +78,7 @@ ros2 launch diff_drive_robot mapping.launch.py use_sim_time:=true
 
 To run the full system, you need 4 separate terminals open at the same time.
 
-#Terminal 1: Simulation (Gazebo)
+## Terminal 1: Simulation (Gazebo)
 
 ```bash
 cd ~/ros2_ws
@@ -86,14 +86,14 @@ export GZ_SIM_RESOURCE_PATH=~/ros2_ws/src/diff_drive_robot/assets/gazebo_models:
 source install/setup.bash
 ros2 launch diff_drive_robot robot.launch.py use_sim_time:=true
 ```
-#Terminal 2: The "Bridge" (Crucial Fix)
+## Terminal 2: The "Bridge" (Crucial Fix)
 This forces the missing link (base_footprint) to exist so Navigation doesn't crash. Keep this running!
 
 ```
 ros2 run tf2_ros static_transform_publisher 0 0 0 0 0 0 base_link base_footprint --ros-args -p use_sim_time:=true
 ```
 
-#Terminal 3: Navigation Stack
+## Terminal 3: Navigation Stack
 This runs the "brain" of the robot.
 ```
 source ~/ros2_ws/install/setup.bash
@@ -101,7 +101,7 @@ ros2 launch nav2_bringup bringup_launch.py map:=/home/akhiljith/ros2_ws/src/diff
 ```
 (Note: Replace /home/akhiljith/my_first_map.yaml with the actual path to your map file).
 
-#Terminal 4: RViz (Visualization)
+## Terminal 4: RViz (Visualization)
 This is your control screen.
 ```
 ros2 run rviz2 rviz2 -d /opt/ros/jazzy/share/nav2_bringup/rviz/nav2_default_view.rviz --ros-args -p use_sim_time:=true
