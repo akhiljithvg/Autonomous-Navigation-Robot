@@ -75,9 +75,37 @@ ros2 launch diff_drive_robot mapping.launch.py use_sim_time:=true
     ```
 
 ### 3. Autonomous Navigation
-To make the robot drive itself using an existing map:
+
+To run the full system, you need 4 separate terminals open at the same time.
+
+#Terminal 1: Simulation (Gazebo)
+
 ```bash
-ros2 launch nav2_bringup bringup_launch.py map:=/path/to/your/map.yaml use_sim_time:=true
+cd ~/ros2_ws
+export GZ_SIM_RESOURCE_PATH=~/ros2_ws/src/diff_drive_robot/assets/gazebo_models:$GZ_SIM_RESOURCE_PATH
+source install/setup.bash
+ros2 launch diff_drive_robot robot.launch.py use_sim_time:=true
+```
+#Terminal 2: The "Bridge" (Crucial Fix)
+This forces the missing link (base_footprint) to exist so Navigation doesn't crash. Keep this running!
+
+```
+ros2 run tf2_ros static_transform_publisher 0 0 0 0 0 0 base_link base_footprint --ros-args -p use_sim_time:=true
+```
+
+#Terminal 3: Navigation Stack
+This runs the "brain" of the robot.
+```
+source ~/ros2_ws/install/setup.bash
+ros2 launch nav2_bringup bringup_launch.py map:=/home/akhiljith/ros2_ws/src/diff_drive_robot/maps/my_first_map.yaml use_sim_time:=true
+```
+(Note: Replace /home/akhiljith/my_first_map.yaml with the actual path to your map file).
+
+#Terminal 4: RViz (Visualization)
+This is your control screen.
+```
+ros2 run rviz2 rviz2 -d /opt/ros/jazzy/share/nav2_bringup/rviz/nav2_default_view.rviz --ros-args -p use_sim_time:=true
+
 ```
 
 #### How to Navigate:
