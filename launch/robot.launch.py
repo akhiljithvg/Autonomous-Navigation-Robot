@@ -23,6 +23,10 @@ def generate_launch_description():
     declare_world = DeclareLaunchArgument(
         name='world', default_value=world_path,
         description='Full path to the world model file to load')
+
+    declare_use_sim_time = DeclareLaunchArgument(
+        name='use_sim_time', default_value='true',
+        description='Use simulation (Gazebo) clock if true')
     
     declare_rviz = DeclareLaunchArgument(
         name='rviz', default_value='True',
@@ -98,6 +102,7 @@ def generate_launch_description():
         # Declare launch arguments
         declare_rviz,
         declare_world,
+        declare_use_sim_time,
 
         # Launch the nodes
         # rviz2,
