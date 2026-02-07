@@ -39,7 +39,7 @@ sudo apt install ros-jazzy-navigation2 ros-jazzy-nav2-bringup ros-jazzy-slam-too
     ```bash
     mkdir -p ~/ros2_ws/src
     cd ~/ros2_ws/src
-    git clone [https://github.com/akhiljithvg/Autonomous-Navigation-Robot.git](https://github.com/akhiljithvg/Autonomous-Navigation-Robot.git)
+    git clone https://github.com/akhiljithvg/Autonomous-Navigation-Robot.git
     ```
 
 2.  **Build the workspace:**
