@@ -54,6 +54,13 @@ sudo apt install ros-jazzy-navigation2 ros-jazzy-nav2-bringup ros-jazzy-slam-too
 ## 🏃 Usage Guide
 
 ### 1. Launch Simulation
+
+set the Resource Path:
+
+```
+export GZ_SIM_RESOURCE_PATH=~/ros2_ws/src/Autonomous-Navigation-Robot/assets/gazebo_models:$GZ_SIM_RESOURCE_PATH
+```
+
 Start the robot in the Gazebo environment:
 ```bash
 ros2 launch diff_drive_robot robot.launch.py use_sim_time:=true
