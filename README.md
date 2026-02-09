@@ -104,9 +104,9 @@ ros2 run tf2_ros static_transform_publisher 0 0 0 0 0 0 base_link base_footprint
 This runs the "brain" of the robot.
 ```
 source ~/ros2_ws/install/setup.bash
-ros2 launch nav2_bringup bringup_launch.py map:=/home/akhiljith/ros2_ws/src/Autonomous-Navigation-Robot/maps/my_first_map.yaml use_sim_time:=true
+ros2 launch nav2_bringup bringup_launch.py map:=/home/akhiljith/ros2_ws/src/Autonomous-Navigation-Robot/maps/my_map.yaml use_sim_time:=true
 ```
-(Note: Replace /home/akhiljith/my_first_map.yaml with the actual path to your map file).
+(Note: Replace /home/akhiljith/my_map.yaml with the actual path to your map file).
 
 ### Terminal 4: RViz (Visualization)
 This is your control screen.
